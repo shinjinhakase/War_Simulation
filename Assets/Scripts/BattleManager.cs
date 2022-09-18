@@ -1,20 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour{
     
     public Character charaL,charaR;
 
     public GameObject charaLDraw,charaRDraw;
+    public Text charaLName,charaRName;
 
     void Start(){
 
-        DrawSprite(charaL,charaLDraw);
-        DrawSprite(charaR,charaRDraw);
-        
-        Debug.Log(charaL.codename+" "+charaL.HP+"/"+charaL.maxHP+" ATK:"+charaL.ATK);
-        Debug.Log(charaR.codename+" "+charaR.HP+"/"+charaR.maxHP+" ATK:"+charaR.ATK);
+        Draw();
 
         Attack(charaL,charaR);
 
@@ -45,6 +43,16 @@ public class BattleManager : MonoBehaviour{
     }
 
     void Update(){
+    }
+
+    void Draw(){
+
+        DrawSprite(charaL,charaLDraw);
+        DrawSprite(charaR,charaRDraw);
+
+        charaLName.text=charaL.codename;
+        charaRName.text=charaR.codename;
+
     }
 
     void DrawSprite(Character scriptableObject,GameObject charaDraw){
