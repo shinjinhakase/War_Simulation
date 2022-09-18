@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Jango
   m_EditorClassIdentifier: 
   codename: "\u30B8\u30E3\u30F3\u30B4"
+  sprite: {fileID: 21300000, guid: 01faf0a88f1c2d24d917a8345a352fc0, type: 3}
+  HP: 12
   maxHP: 12
   ATK: 2
