@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c65f00a751784044aef0fe2bd353877, type: 3}
   m_Name: Yuuki
   m_EditorClassIdentifier: 
-  codename: 
-  maxHP: 0
-  ATK: 0
+  codename: "\u30E6\u30A6\u30AD"
+  maxHP: 8
+  ATK: 3

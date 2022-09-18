@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c65f00a751784044aef0fe2bd353877, type: 3}
   m_Name: Jango
   m_EditorClassIdentifier: 
-  codename: 
-  maxHP: 0
-  ATK: 0
+  codename: "\u30B8\u30E3\u30F3\u30B4"
+  maxHP: 12
+  ATK: 2
