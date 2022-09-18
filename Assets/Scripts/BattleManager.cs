@@ -9,6 +9,7 @@ public class BattleManager : MonoBehaviour{
 
     public GameObject charaLDraw,charaRDraw;
     public Text charaLName,charaRName;
+    public Text charaLATK,charaRATK;
 
     void Start(){
 
@@ -52,6 +53,9 @@ public class BattleManager : MonoBehaviour{
 
         charaLName.text=charaL.codename;
         charaRName.text=charaR.codename;
+        
+        charaLATK.text="攻撃力:"+charaL.ATK.ToString();
+        charaRATK.text="攻撃力:"+charaR.ATK.ToString();
 
     }
 
