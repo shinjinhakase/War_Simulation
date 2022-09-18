@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Yuuki
   m_EditorClassIdentifier: 
   codename: "\u30E6\u30A6\u30AD"
+  sprite: {fileID: 21300000, guid: 446a5e451ed934d4a8b104fa665eb28f, type: 3}
+  HP: 8
   maxHP: 8
   ATK: 3

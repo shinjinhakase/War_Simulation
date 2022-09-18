@@ -6,9 +6,13 @@ public class BattleManager : MonoBehaviour{
     
     public Character charaL,charaR;
 
+    public GameObject charaLDraw,charaRDraw;
+
     void Start(){
 
-
+        DrawSprite(charaL,charaLDraw);
+        DrawSprite(charaR,charaRDraw);
+        
         Debug.Log(charaL.codename+" "+charaL.HP+"/"+charaL.maxHP+" ATK:"+charaL.ATK);
         Debug.Log(charaR.codename+" "+charaR.HP+"/"+charaR.maxHP+" ATK:"+charaR.ATK);
 
@@ -37,10 +41,17 @@ public class BattleManager : MonoBehaviour{
             Debug.Log(charaR.codename+" "+charaR.HP+"/"+charaR.maxHP+" ATK:"+charaR.ATK);
 
         }
-        
+
     }
 
     void Update(){
+    }
+
+    void DrawSprite(Character scriptableObject,GameObject charaDraw){
+
+        SpriteRenderer spriteRenderer=charaDraw.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite=scriptableObject.sprite;
+
     }
 
     void Attack(Character attacker,Character defenser){
