@@ -10,6 +10,8 @@ public class BattleManager : MonoBehaviour{
     public GameObject charaLDraw,charaRDraw;
     public Text charaLName,charaRName;
     public Text charaLATK,charaRATK;
+    public Slider charaLHP,charaRHP;
+    public Image fillL,fillR;
 
     void Start(){
 
@@ -44,6 +46,10 @@ public class BattleManager : MonoBehaviour{
     }
 
     void Update(){
+
+        HPGageManagement(charaLHP,charaL,fillL);
+        HPGageManagement(charaRHP,charaR,fillR);
+
     }
 
     void Draw(){
@@ -57,6 +63,9 @@ public class BattleManager : MonoBehaviour{
         charaLATK.text="攻撃力:"+charaL.ATK.ToString();
         charaRATK.text="攻撃力:"+charaR.ATK.ToString();
 
+        charaLHP.maxValue=charaL.maxHP;
+        charaRHP.maxValue=charaR.maxHP;
+        
     }
 
     void DrawSprite(Character scriptableObject,GameObject charaDraw){
@@ -69,6 +78,28 @@ public class BattleManager : MonoBehaviour{
     void Attack(Character attacker,Character defenser){
 
         defenser.HP-=attacker.ATK;
+
+    }
+
+    void HPGageManagement(Slider HPBar,Character chara,Image fill){
+
+        HPBar.value=chara.HP;
+
+        float colorCheck=100*chara.HP/chara.maxHP;
+
+        if(colorCheck<20){
+
+            fill.color=new Color32(255,21,0,255);
+
+        }else if(colorCheck<50){
+
+            fill.color=new Color32(235,255,0,255);
+
+        }else{
+
+            fill.color=new Color32(0,255,30,255);
+
+        }
 
     }
 
