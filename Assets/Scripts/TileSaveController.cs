@@ -20,7 +20,8 @@ public class TileSaveController : MonoBehaviour{
     
     void Start(){
 
-        Save();
+        //Save();
+        Load();
 
     }
 
@@ -67,6 +68,32 @@ public class TileSaveController : MonoBehaviour{
         writer.WriteLine(json);
         writer.Flush();
         writer.Close();
+
+    }
+
+    public void Load(){
+
+        tilemap.ClearAllTiles();
+
+        FileStream stream=File.Open(saveDataPath,FileMode.Open);
+        StreamReader reader=new StreamReader(stream);
+        var json=reader.ReadToEnd();
+        reader.Close();
+        stream.Close();
+        SaveTilemapData data=JsonUtility.FromJson<SaveTilemapData>(json);
+
+        for(int y=0;y<data.mapData.Count;y++){
+
+            string[] xlist=data.mapData[y].Split(',');
+
+            for(int x=0;x<xlist.Length;x++){
+
+                if(xlist[x]==" ") continue;
+                tilemap.SetTile(new Vector3Int(x,y,0),tileSB.tileDataList.Single(t=>t.head==xlist[x]).tile);
+
+            }
+
+        }
 
     }
 
