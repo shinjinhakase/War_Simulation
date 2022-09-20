@@ -191,6 +191,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1349627491}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: chara
       value: 
       objectReference: {fileID: 11400000, guid: 80428983802075b439b833aa240a42ed, type: 2}
@@ -198,6 +202,14 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1373632749}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 608624116}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: possibleTile
+      value: 
+      objectReference: {fileID: 11400000, guid: a670c7e4c196dcf4dba3cd8818490e25, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
 --- !u!1 &187497619
@@ -314,6 +326,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1349627491}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: chara
       value: 
       objectReference: {fileID: 11400000, guid: 2846db9df796fa74b96c934f43559861, type: 2}
@@ -321,6 +337,14 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1373632749}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 608624116}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: possibleTile
+      value: 
+      objectReference: {fileID: 11400000, guid: a670c7e4c196dcf4dba3cd8818490e25, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
 --- !u!1001 &365675920
@@ -391,6 +415,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1349627491}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: chara
       value: 
       objectReference: {fileID: 11400000, guid: 80428983802075b439b833aa240a42ed, type: 2}
@@ -398,6 +426,14 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1373632749}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 608624116}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: possibleTile
+      value: 
+      objectReference: {fileID: 11400000, guid: a670c7e4c196dcf4dba3cd8818490e25, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
 --- !u!1 &441208283
@@ -886,6 +922,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1349627491}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: chara
       value: 
       objectReference: {fileID: 11400000, guid: 2846db9df796fa74b96c934f43559861, type: 2}
@@ -893,6 +933,14 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1373632749}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 608624116}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: possibleTile
+      value: 
+      objectReference: {fileID: 11400000, guid: a670c7e4c196dcf4dba3cd8818490e25, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
 --- !u!1 &1109326799
@@ -1174,6 +1222,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1349627491}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: chara
       value: 
       objectReference: {fileID: 11400000, guid: 80428983802075b439b833aa240a42ed, type: 2}
@@ -1181,6 +1233,14 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1373632749}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 608624116}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: possibleTile
+      value: 
+      objectReference: {fileID: 11400000, guid: a670c7e4c196dcf4dba3cd8818490e25, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
 --- !u!1001 &1526308100
@@ -1336,6 +1396,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1349627491}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: chara
       value: 
       objectReference: {fileID: 11400000, guid: 2846db9df796fa74b96c934f43559861, type: 2}
@@ -1343,6 +1407,14 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1373632749}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 608624116}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: possibleTile
+      value: 
+      objectReference: {fileID: 11400000, guid: a670c7e4c196dcf4dba3cd8818490e25, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
 --- !u!1 &1949246136

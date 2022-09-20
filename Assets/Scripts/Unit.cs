@@ -22,23 +22,32 @@ public class Unit : MonoBehaviour{
     Grid grid;
 
     [SerializeField]
-    Tilemap tilemap;
+    Tilemap tilemap,goundmap;
 
     [SerializeField]
     TileBase possibleTile;
+
+    List<Vector2> movePossibleList;
     
     void Start(){
 
         spriteRenderer=GetComponent<SpriteRenderer>();
         spriteRenderer.sprite=chara.sprite;
 
+        movePossibleList=new List<Vector2>();
         
     }
 
     void Update(){
 
-        if(cursor.transform.position==this.transform.position){
+        MovePreparation();
+        
+    }
 
+    void MovePreparation(){
+
+        if(cursor.transform.position==this.transform.position){
+            
             if(Input.GetKeyUp(KeyCode.Space)){
 
                 //今いる場所をTilemap上の座標に変換する
@@ -51,23 +60,38 @@ public class Unit : MonoBehaviour{
 
                 SearchPossible(currentPositionOnMap,chara.step);
 
+                Debug.Log(string.Join(",",movePossibleList));
+
             }
         }
-        
+
     }
 
     void SearchPossible(Vector3Int pos, int remainAmount){
 
         if(remainAmount == 0) return;
-        tilemap.SetTile(pos, possibleTile);
 
-        remainAmount--; // 移動力を下げる
+        var CB=goundmap.cellBounds;
+        if(0<=pos.x&&pos.x<CB.max.x&&0<=pos.y&&pos.y<CB.max.y){
 
-        // 再帰的に4方向を確認
-        SearchPossible(pos + Vector3Int.up, remainAmount);
-        SearchPossible(pos + Vector3Int.right, remainAmount);
-        SearchPossible(pos + Vector3Int.down, remainAmount);
-        SearchPossible(pos + Vector3Int.left, remainAmount);
+            tilemap.SetTile(pos, possibleTile);
+
+            Vector2 intrusivePosition=new Vector2(pos.x,pos.y);
+            movePossibleList.Add(intrusivePosition);
+
+            remainAmount--; // 移動力を下げる
+
+            // 再帰的に4方向を確認
+            SearchPossible(pos + Vector3Int.up, remainAmount);
+            SearchPossible(pos + Vector3Int.right, remainAmount);
+            SearchPossible(pos + Vector3Int.down, remainAmount);
+            SearchPossible(pos + Vector3Int.left, remainAmount);
+
+        }else{
+
+            return;
+
+        }
 
     }
 
