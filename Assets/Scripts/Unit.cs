@@ -5,12 +5,6 @@ using UnityEngine.Tilemaps;
 
 public class Unit : MonoBehaviour{
 
-    /*
-    private enum Status{
-    }
-    */
-
-
     [SerializeField]
     Character chara;
     SpriteRenderer spriteRenderer;
@@ -28,6 +22,9 @@ public class Unit : MonoBehaviour{
     TileBase possibleTile;
 
     List<Vector2> movePossibleList;
+
+    bool isMovePreparation=false;
+    bool isDrawChange=false;
     
     void Start(){
 
@@ -40,29 +37,47 @@ public class Unit : MonoBehaviour{
 
     void Update(){
 
-        MovePreparation();
+        if(Input.GetKeyUp(KeyCode.Space)&&isDrawChange==false){
+
+            MovePreparation();
+            isDrawChange=true;
+            
+
+        }else if(Input.GetKeyUp(KeyCode.Space)&&isDrawChange==true){
+
+            Move();
+            isDrawChange=false;
+
+        }
         
     }
 
     void MovePreparation(){
 
-        if(cursor.transform.position==this.transform.position){
+        if(cursor.transform.position==this.transform.position&&isMovePreparation==false){
             
+            //今いる場所をTilemap上の座標に変換する
+            int currentPositionOnMap_X=(int)(this.transform.position.x-0.5f);
+            int currentPositionOnMap_Y=(int)(this.transform.position.y-0.5f);
+
+            Vector3 currentPositionOnMap_vector3=new Vector3(currentPositionOnMap_X,currentPositionOnMap_Y,0);
+
+            Vector3Int currentPositionOnMap=grid.WorldToCell(currentPositionOnMap_vector3);
+
+            SearchPossible(currentPositionOnMap,chara.step);
+
+            isMovePreparation=true;
+
+        }else if(cursor.transform.position==this.transform.position&&isMovePreparation==true){
+
             if(Input.GetKeyUp(KeyCode.Space)){
 
-                //今いる場所をTilemap上の座標に変換する
-                int currentPositionOnMap_X=(int)(this.transform.position.x-0.5f);
-                int currentPositionOnMap_Y=(int)(this.transform.position.y-0.5f);
-
-                Vector3 currentPositionOnMap_vector3=new Vector3(currentPositionOnMap_X,currentPositionOnMap_Y,0);
-
-                Vector3Int currentPositionOnMap=grid.WorldToCell(currentPositionOnMap_vector3);
-
-                SearchPossible(currentPositionOnMap,chara.step);
-
-                Debug.Log(string.Join(",",movePossibleList));
+                isMovePreparation=false;
+                tilemap.ClearAllTiles();
+                movePossibleList.Clear();
 
             }
+
         }
 
     }
@@ -90,6 +105,22 @@ public class Unit : MonoBehaviour{
         }else{
 
             return;
+
+        }
+
+    }
+
+    void Move(){
+
+        Vector2 currentCursorPosition=new Vector2(cursor.transform.position.x-0.5f,cursor.transform.position.y-0.5f);
+        bool isMovePossible=movePossibleList.Contains(currentCursorPosition);
+        if(isMovePossible==true&&isMovePreparation==true){
+
+            transform.position=new Vector2(currentCursorPosition.x+0.5f,currentCursorPosition.y+0.5f);
+            isMovePreparation=false;
+            tilemap.ClearAllTiles();
+            movePossibleList.Clear();
+            Debug.Log("test");
 
         }
 
