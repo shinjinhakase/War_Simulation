@@ -88,6 +88,9 @@ public class Unit : MonoBehaviour{
 
         if(remainAmount == 0) return;
 
+        Vector2 checkImpenetrable=new Vector2(goundmap.GetCellCenterWorld(pos).x,goundmap.GetCellCenterWorld(pos).y);
+        if(checkImpenetrable!=new Vector2(cursor.transform.position.x,cursor.transform.position.y)&&TacticsManager.impenetrable.Contains(checkImpenetrable)) return;
+
         var CB=goundmap.cellBounds;
         if(0<=pos.x&&pos.x<CB.max.x&&0<=pos.y&&pos.y<CB.max.y){
 

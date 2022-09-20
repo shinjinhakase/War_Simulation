@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4527507617584961200, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4527507617584961201, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: m_Sprite
@@ -207,6 +207,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 608624116}
     - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: goundmap
+      value: 
+      objectReference: {fileID: 1949246139}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: possibleTile
       value: 
       objectReference: {fileID: 11400000, guid: a670c7e4c196dcf4dba3cd8818490e25, type: 2}
@@ -271,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4527507617584961200, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4527507617584961201, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: m_Sprite
@@ -342,6 +346,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 608624116}
     - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: goundmap
+      value: 
+      objectReference: {fileID: 1949246139}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: possibleTile
       value: 
       objectReference: {fileID: 11400000, guid: a670c7e4c196dcf4dba3cd8818490e25, type: 2}
@@ -360,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4527507617584961200, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4527507617584961201, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: m_Sprite
@@ -430,6 +438,10 @@ PrefabInstance:
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 608624116}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: goundmap
+      value: 
+      objectReference: {fileID: 1949246139}
     - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: possibleTile
       value: 
@@ -867,7 +879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4527507617584961200, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4527507617584961201, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: m_Sprite
@@ -937,6 +949,10 @@ PrefabInstance:
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 608624116}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: goundmap
+      value: 
+      objectReference: {fileID: 1949246139}
     - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: possibleTile
       value: 
@@ -1167,7 +1183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4527507617584961200, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4527507617584961201, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: m_Sprite
@@ -1237,6 +1253,10 @@ PrefabInstance:
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 608624116}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: goundmap
+      value: 
+      objectReference: {fileID: 1949246139}
     - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: possibleTile
       value: 
@@ -1345,7 +1365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4527507617584961200, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4527507617584961201, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: m_Sprite
@@ -1415,6 +1435,10 @@ PrefabInstance:
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 608624116}
+    - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
+      propertyPath: goundmap
+      value: 
+      objectReference: {fileID: 1949246139}
     - target: {fileID: 5263990108380475809, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
       propertyPath: possibleTile
       value: 
