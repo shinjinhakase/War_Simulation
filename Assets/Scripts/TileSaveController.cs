@@ -14,7 +14,7 @@ public class TileSaveController : MonoBehaviour{
     [SerializeField]
     TileScriptableObject tileSB;
 
-    const string SAVE_FILE="tilemap.json";
+    const string SAVE_FILE="NewTilemap.json";
     const string DATA_DIR="Assets/StreamingAssets/data/";
     static string saveDataPath=Path.Combine(DATA_DIR+SAVE_FILE);
     
@@ -75,7 +75,7 @@ public class TileSaveController : MonoBehaviour{
 
         tilemap.ClearAllTiles();
 
-        FileStream stream=File.Open(saveDataPath,FileMode.Open);
+        FileStream stream=File.Open(DATA_DIR+"map1.json",FileMode.Open);
         StreamReader reader=new StreamReader(stream);
         var json=reader.ReadToEnd();
         reader.Close();

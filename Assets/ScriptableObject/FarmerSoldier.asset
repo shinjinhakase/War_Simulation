@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c65f00a751784044aef0fe2bd353877, type: 3}
-  m_Name: Yuuki
+  m_Name: FarmerSoldier
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 446a5e451ed934d4a8b104fa665eb28f, type: 3}
-  codename: "\u30E6\u30A6\u30AD"
+  sprite: {fileID: 21300000, guid: c6b8262a2c57f384a8698cb9502bfca9, type: 3}
+  codename: "\u30E2\u30CB\u30AB\u6751\u306E\u5175\u58EB"
   team: Farmer
-  HP: 10
-  maxHP: 10
-  ATK: 4
-  step: 4
+  HP: 8
+  maxHP: 8
+  ATK: 2
+  step: 3

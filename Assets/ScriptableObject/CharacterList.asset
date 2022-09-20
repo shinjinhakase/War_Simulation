@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c65f00a751784044aef0fe2bd353877, type: 3}
-  m_Name: Yuuki
+  m_Script: {fileID: 11500000, guid: 2b61e5a654a21c944b247ea3b207207c, type: 3}
+  m_Name: CharacterList
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 446a5e451ed934d4a8b104fa665eb28f, type: 3}
-  codename: "\u30E6\u30A6\u30AD"
-  team: Farmer
-  HP: 10
-  maxHP: 10
-  ATK: 4
-  step: 4
+  characterList:
+  - {fileID: 11400000, guid: 57653346d4cc87f429a8fbb14d5cc08a, type: 2}
+  - {fileID: 11400000, guid: 80428983802075b439b833aa240a42ed, type: 2}
