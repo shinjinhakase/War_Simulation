@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c65f00a751784044aef0fe2bd353877, type: 3}
-  m_Name: Yuuki
+  m_Name: Barbarian
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 446a5e451ed934d4a8b104fa665eb28f, type: 3}
-  codename: "\u30E6\u30A6\u30AD"
-  team: Farmer
-  HP: 10
-  maxHP: 10
-  ATK: 4
-  step: 4
+  sprite: {fileID: 21300000, guid: 1cffcba6b4625064d8cce455cf4d33ce, type: 3}
+  codename: "\u86EE\u65CF"
+  team: Barbarian
+  HP: 12
+  maxHP: 12
+  ATK: 3
+  step: 2
