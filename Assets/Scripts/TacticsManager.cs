@@ -22,12 +22,15 @@ public class TacticsManager : MonoBehaviour{
     List<List<string>> mapType;
     List<string> mapTypeLine;
 
+    public static List<Vector2> impenetrable=new List<Vector2>();
+
     void Start(){
 
         x=0;
         y=0;
-        
+
         MapLoad();
+        Impenet();
 
     }
 
@@ -104,6 +107,30 @@ public class TacticsManager : MonoBehaviour{
 
     }
 
+    void Impenet(){
+
+        int k=0;
+        for(int i=mapType.Count-1;i>=0;i--){
+
+            for(int j=0;j<mapType[i].Count;j++){
+
+                if(mapType[i][j]!="G"){
+
+                    float impX=0.5f+j;
+                    float impY=0.5f+k;
+                    Vector2 impenetrableVector=new Vector2(impX,impY); 
+                    impenetrable.Add(impenetrableVector);
+
+                }
+                
+            }
+
+            k++;
+
+        }
+
+    }
+    
     [Serializable]
     public class SaveTilemapData{
 

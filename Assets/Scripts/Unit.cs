@@ -31,6 +31,8 @@ public class Unit : MonoBehaviour{
         spriteRenderer=GetComponent<SpriteRenderer>();
         spriteRenderer.sprite=chara.sprite;
 
+        TacticsManager.impenetrable.Add(new Vector2(this.transform.position.x,this.transform.position.y));
+
         movePossibleList=new List<Vector2>();
         
     }
@@ -114,13 +116,16 @@ public class Unit : MonoBehaviour{
 
         Vector2 currentCursorPosition=new Vector2(cursor.transform.position.x-0.5f,cursor.transform.position.y-0.5f);
         bool isMovePossible=movePossibleList.Contains(currentCursorPosition);
-        if(isMovePossible==true&&isMovePreparation==true){
+        bool isMoveImpossible=TacticsManager.impenetrable.Contains(new Vector2(cursor.transform.position.x,cursor.transform.position.y));
+        if(isMovePossible==true&&isMovePreparation==true&&isMoveImpossible==false){
 
+            TacticsManager.impenetrable.Remove(new Vector2(this.transform.position.x,this.transform.position.y));
             transform.position=new Vector2(currentCursorPosition.x+0.5f,currentCursorPosition.y+0.5f);
+            TacticsManager.impenetrable.Add(new Vector2(this.transform.position.x,this.transform.position.y));
             isMovePreparation=false;
             tilemap.ClearAllTiles();
+
             movePossibleList.Clear();
-            Debug.Log("test");
 
         }
 
