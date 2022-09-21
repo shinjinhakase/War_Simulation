@@ -19,15 +19,32 @@ public class TacticsManager : MonoBehaviour{
     [SerializeField]
     GameObject cursor;
 
+    [SerializeField]
+    GameObject command;
+
     List<List<string>> mapType;
     List<string> mapTypeLine;
 
     public static List<Vector2> impenetrable=new List<Vector2>();
 
+    public enum Status{
+
+        view,
+        select,
+        action
+
+    }
+
+    public static Status status;
+
     void Start(){
 
         x=0;
         y=0;
+
+        status=Status.view;
+
+        command.SetActive(false);
 
         MapLoad();
         Impenet();
@@ -70,7 +87,45 @@ public class TacticsManager : MonoBehaviour{
 
     }
 
+    void Impenet(){
+
+        int k=0;
+        for(int i=mapType.Count-1;i>=0;i--){
+
+            for(int j=0;j<mapType[i].Count;j++){
+
+                if(mapType[i][j]!="G"){
+
+                    float impX=0.5f+j;
+                    float impY=0.5f+k;
+                    Vector2 impenetrableVector=new Vector2(impX,impY); 
+                    impenetrable.Add(impenetrableVector);
+
+                }
+                
+            }
+
+            k++;
+
+        }
+
+    }
+
     void InputCheck(){
+
+        if(status==Status.view||status==Status.select){
+
+            CursorMove();
+
+        }else if(status==Status.action){
+
+            command.SetActive(true);
+
+        }
+
+    }
+
+    void CursorMove(){
 
         Vector2 cursorPosition=cursor.transform.position;
         var cellBounds=tilemap.cellBounds;
@@ -107,29 +162,7 @@ public class TacticsManager : MonoBehaviour{
 
     }
 
-    void Impenet(){
-
-        int k=0;
-        for(int i=mapType.Count-1;i>=0;i--){
-
-            for(int j=0;j<mapType[i].Count;j++){
-
-                if(mapType[i][j]!="G"){
-
-                    float impX=0.5f+j;
-                    float impY=0.5f+k;
-                    Vector2 impenetrableVector=new Vector2(impX,impY); 
-                    impenetrable.Add(impenetrableVector);
-
-                }
-                
-            }
-
-            k++;
-
-        }
-
-    }
+    
     
     [Serializable]
     public class SaveTilemapData{

@@ -22,9 +22,6 @@ public class Unit : MonoBehaviour{
     TileBase possibleTile;
 
     List<Vector2> movePossibleList;
-
-    bool isMovePreparation=false;
-    bool isDrawChange=false;
     
     void Start(){
 
@@ -39,16 +36,17 @@ public class Unit : MonoBehaviour{
 
     void Update(){
 
-        if(Input.GetKeyUp(KeyCode.Space)&&isDrawChange==false){
+        if(Input.GetKeyUp(KeyCode.Space)){
 
-            MovePreparation();
-            isDrawChange=true;
-            
+            if(TacticsManager.status==TacticsManager.Status.view){
+                
+                MovePreparation();
+                
+            }else if(TacticsManager.status==TacticsManager.Status.select){
 
-        }else if(Input.GetKeyUp(KeyCode.Space)&&isDrawChange==true){
+                Move();
 
-            Move();
-            isDrawChange=false;
+            }
 
         }
         
@@ -56,7 +54,7 @@ public class Unit : MonoBehaviour{
 
     void MovePreparation(){
 
-        if(cursor.transform.position==this.transform.position&&isMovePreparation==false){
+        if(cursor.transform.position==this.transform.position){
             
             //今いる場所をTilemap上の座標に変換する
             int currentPositionOnMap_X=(int)(this.transform.position.x-0.5f);
@@ -68,17 +66,7 @@ public class Unit : MonoBehaviour{
 
             SearchPossible(currentPositionOnMap,chara.step);
 
-            isMovePreparation=true;
-
-        }else if(cursor.transform.position==this.transform.position&&isMovePreparation==true){
-
-            if(Input.GetKeyUp(KeyCode.Space)){
-
-                isMovePreparation=false;
-                tilemap.ClearAllTiles();
-                movePossibleList.Clear();
-
-            }
+            TacticsManager.status=TacticsManager.Status.select;
 
         }
 
@@ -117,15 +105,27 @@ public class Unit : MonoBehaviour{
 
     void Move(){
 
+        if(cursor.transform.position==this.transform.position){
+
+            TacticsManager.status=TacticsManager.Status.view;
+            tilemap.ClearAllTiles();
+            movePossibleList.Clear();
+
+            return;
+
+        }
+        
         Vector2 currentCursorPosition=new Vector2(cursor.transform.position.x-0.5f,cursor.transform.position.y-0.5f);
         bool isMovePossible=movePossibleList.Contains(currentCursorPosition);
         bool isMoveImpossible=TacticsManager.impenetrable.Contains(new Vector2(cursor.transform.position.x,cursor.transform.position.y));
-        if(isMovePossible==true&&isMovePreparation==true&&isMoveImpossible==false){
+        if(isMovePossible==true&&isMoveImpossible==false){
 
             TacticsManager.impenetrable.Remove(new Vector2(this.transform.position.x,this.transform.position.y));
             transform.position=new Vector2(currentCursorPosition.x+0.5f,currentCursorPosition.y+0.5f);
             TacticsManager.impenetrable.Add(new Vector2(this.transform.position.x,this.transform.position.y));
-            isMovePreparation=false;
+
+            TacticsManager.status=TacticsManager.Status.action;
+
             tilemap.ClearAllTiles();
 
             movePossibleList.Clear();
