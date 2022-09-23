@@ -1,12 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Command : MonoBehaviour{
     
     int select=0;
+
+    List<Vector2> attackablePosition;
+    public static List<Character> attackContender;
+
+    public GameObject cursor,command;
+    public Text contenderText;
     
     void Start(){
+
+        attackablePosition=new List<Vector2>();
         
     }
 
@@ -34,19 +44,63 @@ public class Command : MonoBehaviour{
 
                 case 0:
 
-                    Debug.Log("attack!");
+                    AttackablePositionCheck();
+                    attackContender=new List<Character>();
+                    for(int i=0;i<TacticsManager.charaList.Count;i++){
+
+                        if(attackablePosition.Contains(TacticsManager.charaList[i].transform.position)){
+
+                            attackContender.Add(TacticsManager.charaList[i].GetComponent<Unit>().chara);
+
+                    
+                        }
+
+                    }
+
+                    ContenderTextDraw(attackContender);
+
+                    TacticsManager.status=TacticsManager.Status.attack;
+
+                    command.SetActive(false);
+
 
                 break;
 
                 case 1:
 
-                    Debug.Log("standby");
+                    TacticsManager.status=TacticsManager.Status.view;
+
+                    command.SetActive(false);
 
                 break;
 
             }
-            
+
         }
+
+    }
+
+    void AttackablePositionCheck(){
+
+        attackablePosition.Clear();
+
+        attackablePosition.Add(new Vector2(cursor.transform.position.x+1f,cursor.transform.position.y));
+        attackablePosition.Add(new Vector2(cursor.transform.position.x,cursor.transform.position.y-1f));
+        attackablePosition.Add(new Vector2(cursor.transform.position.x,cursor.transform.position.y+1f));
+        attackablePosition.Add(new Vector2(cursor.transform.position.x-1f,cursor.transform.position.y));
+
+    }
+
+    void ContenderTextDraw(List<Character> contender){
+
+        string drawText="";
+        for(int i=0;i<contender.Count;i++){
+
+            drawText+=contender[i].codename+"\n";
+
+        }
+
+        contenderText.text=drawText;
 
     }
 
