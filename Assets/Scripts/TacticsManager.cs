@@ -17,21 +17,22 @@ public class TacticsManager : MonoBehaviour{
     Tilemap tilemap;
 
     [SerializeField]
-    GameObject cursor;
-
-    [SerializeField]
-    GameObject command;
+    GameObject cursor,command,decide;
 
     List<List<string>> mapType;
     List<string> mapTypeLine;
 
     public static List<Vector2> impenetrable=new List<Vector2>();
+    public static List<Vector2> charaPosition=new List<Vector2>();
+
+    public static List<GameObject> charaList=new List<GameObject>();
 
     public enum Status{
 
         view,
         select,
-        action
+        action,
+        attack
 
     }
 
@@ -121,6 +122,10 @@ public class TacticsManager : MonoBehaviour{
 
             command.SetActive(true);
 
+        }else if(status==Status.attack){
+
+            AttackDecide();
+            
         }
 
     }
@@ -162,7 +167,34 @@ public class TacticsManager : MonoBehaviour{
 
     }
 
-    
+    void AttackDecide(){
+
+        int moveRange=Command.attackContender.Count;
+
+        RectTransform decidePosition=decide.GetComponent<RectTransform>();
+
+        float lowerLimit=decidePosition.localPosition.y-moveRange*60f;
+        float upperLimit=220;
+        
+        if(Input.GetKeyUp(KeyCode.DownArrow)&&decidePosition.localPosition.y>lowerLimit){
+
+            decidePosition.localPosition+=new Vector3(0,-60,0);
+
+        }
+
+        if(Input.GetKeyUp(KeyCode.UpArrow)&&decidePosition.localPosition.y<upperLimit){
+
+            decidePosition.localPosition+=new Vector3(0,60,0);
+
+        }
+
+        if(Input.GetKeyUp(KeyCode.Space)){
+
+            status=Status.view;
+
+        }
+
+    }
     
     [Serializable]
     public class SaveTilemapData{

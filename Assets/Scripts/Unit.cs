@@ -5,8 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class Unit : MonoBehaviour{
 
-    [SerializeField]
-    Character chara;
+    public Character chara;
     SpriteRenderer spriteRenderer;
 
     [SerializeField]
@@ -29,6 +28,8 @@ public class Unit : MonoBehaviour{
         spriteRenderer.sprite=chara.sprite;
 
         TacticsManager.impenetrable.Add(new Vector2(this.transform.position.x,this.transform.position.y));
+        TacticsManager.charaPosition.Add(new Vector2(this.transform.position.x,this.transform.position.y));
+        TacticsManager.charaList.Add(this.gameObject);
 
         movePossibleList=new List<Vector2>();
         
@@ -121,8 +122,10 @@ public class Unit : MonoBehaviour{
         if(isMovePossible==true&&isMoveImpossible==false){
 
             TacticsManager.impenetrable.Remove(new Vector2(this.transform.position.x,this.transform.position.y));
+            TacticsManager.charaPosition.Remove(new Vector2(this.transform.position.x,this.transform.position.y));
             transform.position=new Vector2(currentCursorPosition.x+0.5f,currentCursorPosition.y+0.5f);
             TacticsManager.impenetrable.Add(new Vector2(this.transform.position.x,this.transform.position.y));
+            TacticsManager.charaPosition.Add(new Vector2(this.transform.position.x,this.transform.position.y));
 
             TacticsManager.status=TacticsManager.Status.action;
 
