@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class Unit : MonoBehaviour{
 
+    public Character charaOrigin;
     public Character chara;
     SpriteRenderer spriteRenderer;
 
@@ -23,6 +24,8 @@ public class Unit : MonoBehaviour{
     List<Vector2> movePossibleList;
     
     void Start(){
+
+        chara=charaOrigin;
 
         spriteRenderer=GetComponent<SpriteRenderer>();
         spriteRenderer.sprite=chara.sprite;

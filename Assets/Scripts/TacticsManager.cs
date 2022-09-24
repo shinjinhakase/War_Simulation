@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
 public class TacticsManager : MonoBehaviour{
@@ -13,11 +14,13 @@ public class TacticsManager : MonoBehaviour{
     
     int x,y;
 
+    public static int decideNumber;
+
     [SerializeField]
     Tilemap tilemap;
 
     [SerializeField]
-    GameObject cursor,command,decide;
+    GameObject cursor,command,decideMarker;
 
     List<List<string>> mapType;
     List<string> mapTypeLine;
@@ -26,6 +29,9 @@ public class TacticsManager : MonoBehaviour{
     public static List<Vector2> charaPosition=new List<Vector2>();
 
     public static List<GameObject> charaList=new List<GameObject>();
+
+    [SerializeField]
+    private UnityEvent decide = new UnityEvent();
 
     public enum Status{
 
@@ -125,7 +131,7 @@ public class TacticsManager : MonoBehaviour{
         }else if(status==Status.attack){
 
             AttackDecide();
-            
+
         }
 
     }
@@ -170,8 +176,9 @@ public class TacticsManager : MonoBehaviour{
     void AttackDecide(){
 
         int moveRange=Command.attackContender.Count;
+        decideNumber=0;
 
-        RectTransform decidePosition=decide.GetComponent<RectTransform>();
+        RectTransform decidePosition=decideMarker.GetComponent<RectTransform>();
 
         float lowerLimit=decidePosition.localPosition.y-moveRange*60f;
         float upperLimit=220;
@@ -179,18 +186,21 @@ public class TacticsManager : MonoBehaviour{
         if(Input.GetKeyUp(KeyCode.DownArrow)&&decidePosition.localPosition.y>lowerLimit){
 
             decidePosition.localPosition+=new Vector3(0,-60,0);
+            decideNumber++;
 
         }
 
         if(Input.GetKeyUp(KeyCode.UpArrow)&&decidePosition.localPosition.y<upperLimit){
 
             decidePosition.localPosition+=new Vector3(0,60,0);
+            decideNumber--;
 
         }
 
         if(Input.GetKeyUp(KeyCode.Space)){
 
             status=Status.view;
+            decide.Invoke();
 
         }
 
