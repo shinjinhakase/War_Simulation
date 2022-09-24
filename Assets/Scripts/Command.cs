@@ -9,7 +9,7 @@ public class Command : MonoBehaviour{
     int select=0;
 
     List<Vector2> attackablePosition;
-    public static List<Character> attackContender;
+    public static List<GameObject> attackContender;
 
     public GameObject cursor,command;
     public Text contenderText;
@@ -45,12 +45,12 @@ public class Command : MonoBehaviour{
                 case 0:
 
                     AttackablePositionCheck();
-                    attackContender=new List<Character>();
+                    attackContender=new List<GameObject>();
                     for(int i=0;i<TacticsManager.charaList.Count;i++){
 
                         if(attackablePosition.Contains(TacticsManager.charaList[i].transform.position)){
 
-                            attackContender.Add(TacticsManager.charaList[i].GetComponent<Unit>().chara);
+                            attackContender.Add(TacticsManager.charaList[i]);
 
                     
                         }
@@ -91,12 +91,12 @@ public class Command : MonoBehaviour{
 
     }
 
-    void ContenderTextDraw(List<Character> contender){
+    void ContenderTextDraw(List<GameObject> contender){
 
         string drawText="";
         for(int i=0;i<contender.Count;i++){
 
-            drawText+=contender[i].codename+"\n";
+            drawText+=contender[i].GetComponent<Unit>().chara.codename+"\n";
 
         }
 

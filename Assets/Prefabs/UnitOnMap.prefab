@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5263990108380475809}
   m_Layer: 0
   m_Name: UnitOnMap
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1359967203
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,3 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chara: {fileID: 0}
+  cursor: {fileID: 0}
+  grid: {fileID: 0}
+  tilemap: {fileID: 0}
+  goundmap: {fileID: 0}
+  possibleTile: {fileID: 0}

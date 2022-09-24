@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour{
     
-    public Character charaL,charaR;
+    private Character charaL,charaR;
 
     public GameObject charaLDraw,charaRDraw;
     public Text charaLName,charaRName;
@@ -15,6 +15,9 @@ public class BattleManager : MonoBehaviour{
 
     void Start(){
 
+        charaL=DataCarrier.charaL;
+        charaR=DataCarrier.charaR;
+        
         Draw();
 
         Attack(charaL,charaR);
