@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class Unit : MonoBehaviour{
 
-    public Character charaOrigin;
+    public Character origin;
     public Character chara;
     SpriteRenderer spriteRenderer;
 
@@ -25,8 +25,8 @@ public class Unit : MonoBehaviour{
     
     void Start(){
 
-        chara=charaOrigin;
-
+        chara=new Character();
+        chara.DeepCopy(origin);
         spriteRenderer=GetComponent<SpriteRenderer>();
         spriteRenderer.sprite=chara.sprite;
 
