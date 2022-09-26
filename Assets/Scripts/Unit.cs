@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class Unit : MonoBehaviour{
 
     public Character origin;
-    public Character chara;
+    public Character chara=new Character();
     SpriteRenderer spriteRenderer;
 
     [SerializeField]
@@ -25,14 +25,13 @@ public class Unit : MonoBehaviour{
     
     void Start(){
 
-        chara=new Character();
         chara.DeepCopy(origin);
         spriteRenderer=GetComponent<SpriteRenderer>();
         spriteRenderer.sprite=chara.sprite;
 
-        TacticsManager.impenetrable.Add(new Vector2(this.transform.position.x,this.transform.position.y));
+        DataManager.impenetPlace.Add(new Vector2(this.transform.position.x,this.transform.position.y));
         TacticsManager.charaPosition.Add(new Vector2(this.transform.position.x,this.transform.position.y));
-        TacticsManager.charaList.Add(this.gameObject);
+        DataManager.charaList.Add(this.gameObject);
 
         movePossibleList=new List<Vector2>();
         
@@ -81,7 +80,7 @@ public class Unit : MonoBehaviour{
         if(remainAmount == 0) return;
 
         Vector2 checkImpenetrable=new Vector2(goundmap.GetCellCenterWorld(pos).x,goundmap.GetCellCenterWorld(pos).y);
-        if(checkImpenetrable!=new Vector2(cursor.transform.position.x,cursor.transform.position.y)&&TacticsManager.impenetrable.Contains(checkImpenetrable)) return;
+        if(checkImpenetrable!=new Vector2(cursor.transform.position.x,cursor.transform.position.y)&&DataManager.impenetPlace.Contains(checkImpenetrable)) return;
 
         var CB=goundmap.cellBounds;
         if(0<=pos.x&&pos.x<CB.max.x&&0<=pos.y&&pos.y<CB.max.y){
@@ -121,13 +120,13 @@ public class Unit : MonoBehaviour{
         
         Vector2 currentCursorPosition=new Vector2(cursor.transform.position.x-0.5f,cursor.transform.position.y-0.5f);
         bool isMovePossible=movePossibleList.Contains(currentCursorPosition);
-        bool isMoveImpossible=TacticsManager.impenetrable.Contains(new Vector2(cursor.transform.position.x,cursor.transform.position.y));
+        bool isMoveImpossible=DataManager.impenetPlace.Contains(new Vector2(cursor.transform.position.x,cursor.transform.position.y));
         if(isMovePossible==true&&isMoveImpossible==false){
 
-            TacticsManager.impenetrable.Remove(new Vector2(this.transform.position.x,this.transform.position.y));
+            DataManager.impenetPlace.Remove(new Vector2(this.transform.position.x,this.transform.position.y));
             TacticsManager.charaPosition.Remove(new Vector2(this.transform.position.x,this.transform.position.y));
             transform.position=new Vector2(currentCursorPosition.x+0.5f,currentCursorPosition.y+0.5f);
-            TacticsManager.impenetrable.Add(new Vector2(this.transform.position.x,this.transform.position.y));
+            DataManager.impenetPlace.Add(new Vector2(this.transform.position.x,this.transform.position.y));
             TacticsManager.charaPosition.Add(new Vector2(this.transform.position.x,this.transform.position.y));
 
             TacticsManager.status=TacticsManager.Status.action;

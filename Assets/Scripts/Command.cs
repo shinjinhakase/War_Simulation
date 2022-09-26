@@ -46,11 +46,11 @@ public class Command : MonoBehaviour{
 
                     AttackablePositionCheck();
                     attackContender=new List<GameObject>();
-                    for(int i=0;i<TacticsManager.charaList.Count;i++){
+                    for(int i=0;i<DataManager.charaList.Count;i++){
 
-                        if(attackablePosition.Contains(TacticsManager.charaList[i].transform.position)){
+                        if(attackablePosition.Contains(DataManager.charaList[i].transform.position)){
 
-                            attackContender.Add(TacticsManager.charaList[i]);
+                            attackContender.Add(DataManager.charaList[i]);
 
                     
                         }

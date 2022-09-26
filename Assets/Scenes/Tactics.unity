@@ -601,6 +601,8 @@ GameObject:
   m_Component:
   - component: {fileID: 187497620}
   - component: {fileID: 187497621}
+  - component: {fileID: 187497622}
+  - component: {fileID: 187497623}
   m_Layer: 0
   m_Name: TacticsManager
   m_TagString: Untagged
@@ -632,11 +634,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 187497619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad89a1a680369e045a6e89c729baf322, type: 3}
+  m_Script: {fileID: 11500000, guid: 2725b608dd6737046a3593f1750d7390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 1949246139}
-  cursor: {fileID: 1373632749}
   command: {fileID: 381047819}
   decideMarker: {fileID: 310024832}
   decide:
@@ -654,6 +654,48 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &187497622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187497619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734724eb1d1a0284e8a9693c97df4fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MAP_NAME: map1.json
+  tilemap: {fileID: 1949246139}
+  tileSB: {fileID: 11400000, guid: e5590ec6fa9c09744a9feee52ea55b10, type: 2}
+  launchImpenet:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 187497623}
+        m_TargetAssemblyTypeName: Impenet, Assembly-CSharp
+        m_MethodName: DetectImpenetPlace
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &187497623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187497619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff2168e463a5f948912aaf5bfa526fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &248535185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1427,7 +1469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &670488585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1775,6 +1817,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1373632751}
   - component: {fileID: 1373632750}
+  - component: {fileID: 1373632752}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -1851,6 +1894,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1373632752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373632749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7843967384d383540875e43124075950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 1949246139}
 --- !u!1001 &1478644987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2396,6 +2452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1973106318}
   - component: {fileID: 1973106317}
+  - component: {fileID: 1973106319}
   m_Layer: 0
   m_Name: DataCarrier
   m_TagString: Untagged
@@ -2431,3 +2488,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1973106319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973106316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3833f09c5a0328943ad47e0e085cae0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
