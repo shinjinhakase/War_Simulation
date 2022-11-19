@@ -12,16 +12,4 @@ public class Character : ScriptableObject{
     public int ATK;
     public int step;
 
-    public void DeepCopy(Character chara){
-
-        this.sprite=chara.sprite;
-        this.codename=chara.codename;
-        this.team=chara.team;
-        this.HP=chara.HP;
-        this.maxHP=chara.maxHP;
-        this.ATK=chara.ATK;
-        this.step=chara.step;
-
-    }
-
 }

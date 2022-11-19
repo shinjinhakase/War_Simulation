@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class DataCarrier : MonoBehaviour{
     
+    
     public static Character charaL,charaR;
-
+    
+    /*
     public GameObject cursor;
     
     void Start(){
@@ -37,5 +39,6 @@ public class DataCarrier : MonoBehaviour{
         SceneManager.LoadScene("Battle");
         
     }
+    */
 
 }

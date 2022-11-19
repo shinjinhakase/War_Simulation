@@ -22,12 +22,15 @@ public class MapLoad : MonoBehaviour{
 
     [SerializeField]
     private UnityEvent launchImpenet=new UnityEvent();
+    [SerializeField]
+    private UnityEvent launchUnitProduce=new UnityEvent();
     
     void Start(){
 
         Load();
         launchImpenet.Invoke();
-
+        launchUnitProduce.Invoke();
+        
     }
 
     void Load(){

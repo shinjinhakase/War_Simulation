@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class Unit : MonoBehaviour{
-
-    public Character origin;
-    public Character chara=new Character();
+    
+    public LocalCharaData chara=new LocalCharaData();
     SpriteRenderer spriteRenderer;
 
     [SerializeField]
@@ -24,10 +23,6 @@ public class Unit : MonoBehaviour{
     List<Vector2> movePossibleList;
     
     void Start(){
-
-        chara.DeepCopy(origin);
-        spriteRenderer=GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite=chara.sprite;
 
         DataManager.impenetPlace.Add(new Vector2(this.transform.position.x,this.transform.position.y));
         TacticsManager.charaPosition.Add(new Vector2(this.transform.position.x,this.transform.position.y));
@@ -136,6 +131,13 @@ public class Unit : MonoBehaviour{
             movePossibleList.Clear();
 
         }
+
+    }
+
+    public void SetChara(){
+
+        spriteRenderer=GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite=chara.sprite;
 
     }
 
