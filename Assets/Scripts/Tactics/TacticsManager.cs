@@ -37,9 +37,6 @@ public class TacticsManager : MonoBehaviour{
 
     }
 
-    void Update(){
-    }
-
     void AttackDecide(){
 
         int moveRange=Command.attackContender.Count;
