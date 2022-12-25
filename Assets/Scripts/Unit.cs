@@ -7,28 +7,20 @@ public class Unit : MonoBehaviour{
     
     public LocalCharaData chara=new LocalCharaData();
     SpriteRenderer spriteRenderer;
+    
+    public GameObject cursor;
+    public Grid grid;
+    public Tilemap tilemap,goundmap;
+    public TileBase possibleTile;
 
-    [SerializeField]
-    GameObject cursor;
-
-    [SerializeField]
-    Grid grid;
-
-    [SerializeField]
-    Tilemap tilemap,goundmap;
-
-    [SerializeField]
-    TileBase possibleTile;
-
-    List<Vector2> movePossibleList;
+    List<Vector2> movePossibleList = new List<Vector2>();
     
     void Start(){
 
+        //自分の存在を登録
         DataManager.impenetPlace.Add(new Vector2(this.transform.position.x,this.transform.position.y));
         TacticsManager.charaPosition.Add(new Vector2(this.transform.position.x,this.transform.position.y));
         DataManager.charaList.Add(this.gameObject);
-
-        movePossibleList=new List<Vector2>();
         
     }
 
@@ -54,17 +46,11 @@ public class Unit : MonoBehaviour{
 
         if(cursor.transform.position==this.transform.position){
             
-            //今いる場所をTilemap上の座標に変換する
-            int currentPositionOnMap_X=(int)(this.transform.position.x-0.5f);
-            int currentPositionOnMap_Y=(int)(this.transform.position.y-0.5f);
-
-            Vector3 currentPositionOnMap_vector3=new Vector3(currentPositionOnMap_X,currentPositionOnMap_Y,0);
-
-            Vector3Int currentPositionOnMap=grid.WorldToCell(currentPositionOnMap_vector3);
-
-            SearchPossible(currentPositionOnMap,chara.step);
-
             TacticsManager.status=TacticsManager.Status.select;
+            
+            //今いる場所をTilemap上の座標に変換する
+            Vector3Int currentPositionOnMap=grid.WorldToCell(this.transform.position);
+            SearchPossible(currentPositionOnMap,chara.step);
 
         }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class UnitProduce : MonoBehaviour{
     
@@ -12,6 +13,18 @@ public class UnitProduce : MonoBehaviour{
 
     [SerializeField]
     CharacterList book;
+
+    [SerializeField]
+    GameObject cursor;
+
+    [SerializeField]
+    Grid grid;
+
+    [SerializeField]
+    Tilemap tilemap,goundmap;
+
+    [SerializeField]
+    TileBase possibleTile;
 
     public GameObject unitOnMap;
     
@@ -35,10 +48,9 @@ public class UnitProduce : MonoBehaviour{
         for(int line=data.mapData.Count-1;line>=0;line--){
 
             string[] tmpList=data.mapData[line].Split(',');
-            Debug.Log(string.Join(",",data.mapData[line]));
+            
             for(int column=0;column<tmpList.Length;column++){
 
-                Debug.Log("k:"+k+" column:"+column+data.mapData[line][column]);
                 UnitInstantiate(tmpList[column].ToString(),k,column);
 
             }
@@ -85,7 +97,11 @@ public class UnitProduce : MonoBehaviour{
         }
 
         unitScript.SetChara();
-
+        unitScript.cursor = cursor;
+        unitScript.grid = grid;
+        unitScript.tilemap = tilemap;
+        unitScript.goundmap = goundmap;
+        unitScript.possibleTile = possibleTile;
     }
 
 }
