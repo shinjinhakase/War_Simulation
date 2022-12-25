@@ -625,6 +625,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAP_NAME: unit1.json
   book: {fileID: 11400000, guid: f898d9539cf565d4c96674ec1bae4311, type: 2}
+  cursor: {fileID: 1373632749}
+  grid: {fileID: 1349627491}
+  tilemap: {fileID: 608624116}
+  goundmap: {fileID: 1949246139}
+  possibleTile: {fileID: 11400000, guid: a670c7e4c196dcf4dba3cd8818490e25, type: 2}
   unitOnMap: {fileID: 4527507617584961200, guid: 695bde374f083394bb0a5e72073a5e39, type: 3}
 --- !u!1 &310024832
 GameObject:
@@ -1820,7 +1825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cb70637fb999740aedbd4d76065096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursor: {fileID: 1373632749}
 --- !u!4 &1973106318
 Transform:
   m_ObjectHideFlags: 0
